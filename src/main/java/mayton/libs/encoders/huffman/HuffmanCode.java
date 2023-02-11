@@ -74,7 +74,7 @@ public class HuffmanCode {
     }
 
     public static void main(String[] args) {
-        String test = "this is an example for huffman encoding привед медвед ддддддд";
+        String test = "this is an 111 example for huffman encoding привед медвед ддддддд 1111111111111111111111111111111111";
 
         // we will assume that all our characters will have
         // code less than 256, for simplicity

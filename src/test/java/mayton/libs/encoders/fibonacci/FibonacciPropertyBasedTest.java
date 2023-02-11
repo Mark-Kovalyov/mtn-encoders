@@ -6,7 +6,6 @@ import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 @RunWith(JUnitQuickcheck.class)
 public class FibonacciPropertyBasedTest {

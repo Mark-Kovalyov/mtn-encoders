@@ -10,7 +10,7 @@ import static mayton.libs.encoders.AriphmeticOutputStream.arithmeticDecoding;
 public class AriphmeticEncoderTest {
 
     public static String decodeRange(BigInteger x) {
-        if (x.compareTo(BigInteger.valueOf(256 - 1)) < 0) {
+        if (x.compareTo(BigInteger.valueOf(0xFF)) < 0) {
             return "byte";
         } else if (x.compareTo(BigInteger.valueOf(0xFFFF)) < 0) {
             return "word"; // short

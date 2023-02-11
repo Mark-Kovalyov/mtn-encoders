@@ -9,10 +9,10 @@ public class FibonacciUtilsTest {
 
     @Test
     public void testEncoder() {
-
         assertEquals("1", FibonacciUtils.encodeF(1));
         assertEquals("01", FibonacciUtils.encodeF(2));
         assertEquals("001", FibonacciUtils.encodeF(3));
+        assertEquals("0001", FibonacciUtils.encodeF(5));
     }
 
     @Test(expected = IllegalArgumentException.class)

@@ -1,32 +1,38 @@
 package mayton.libs.encoders;
 
-import org.junit.Ignore;
+
 import org.apache.commons.io.output.NullOutputStream;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BitOutpuStreamTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testFlushedStream() throws IOException {
-        BitOutpuStream bitOutpuStream = new BitOutpuStream(new NullOutputStream());
-        bitOutpuStream.writeBit(1);
-        bitOutpuStream.flush();
-        bitOutpuStream.writeBit(1);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testNegativeBit() throws IOException {
-        BitOutpuStream bitOutpuStream = new BitOutpuStream(new NullOutputStream());
-        bitOutpuStream.writeBit(-1);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            BitOutpuStream bitOutpuStream = new BitOutpuStream(new NullOutputStream());
+            bitOutpuStream.writeBit(1);
+            bitOutpuStream.flush();
+            bitOutpuStream.writeBit(1);
+        });
     }
 
     @Test
-    @Ignore
+    public void testNegativeBit() throws IOException {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            BitOutpuStream bitOutpuStream = new BitOutpuStream(new NullOutputStream());
+            bitOutpuStream.writeBit(-1);
+        });
+    }
+
+    @Test
+    @Disabled
     public void test() throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         BitOutpuStream bitOutpuStream = new BitOutpuStream(bos);

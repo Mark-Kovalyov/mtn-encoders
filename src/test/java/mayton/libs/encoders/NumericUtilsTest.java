@@ -1,14 +1,17 @@
 package mayton.libs.encoders;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NumericUtilsTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void negativeTestDetectWidthInBits() {
-        NumericUtils.detectWidthInBits(-1);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            NumericUtils.detectWidthInBits(-1);
+        });
     }
 
     @Test

@@ -5,7 +5,6 @@ import mayton.libs.encoders.CompactDigitOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-// TODO: Develop
 public class BcdOutputStream extends CompactDigitOutputStream {
 
     public BcdOutputStream(OutputStream outputStream) {
@@ -14,6 +13,6 @@ public class BcdOutputStream extends CompactDigitOutputStream {
 
     @Override
     public void writeLong(long v) throws IOException {
-        // 64 bit = 5 + 59
+
     }
 }

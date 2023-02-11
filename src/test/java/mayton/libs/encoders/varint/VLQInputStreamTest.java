@@ -1,17 +1,14 @@
 package mayton.libs.encoders.varint;
 
 import org.apache.commons.io.input.NullInputStream;
-import org.apache.commons.io.output.NullOutputStream;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VLQInputStreamTest {
 
@@ -21,13 +18,14 @@ public class VLQInputStreamTest {
         assertEquals(-1, vlqInputStream.readLong());
     }
 
-    @Test(expected = IllegalStateException.class)
-    @Ignore
-    public void illegalStreamState() throws IOException {
-        byte[] buf = new byte[] { (byte) 0xFF };
-        VLQInputStream vlqInputStream = new VLQInputStream(new ByteArrayInputStream(buf));
-        long res = vlqInputStream.readLong();
-        //assertEquals(127, res);
+    @Test
+    @Disabled
+    public void illegalStreamState() {
+        Assertions.assertThrows(IllegalStateException.class, () -> {
+            byte[] buf = new byte[] { (byte) 0xFF };
+            VLQInputStream vlqInputStream = new VLQInputStream(new ByteArrayInputStream(buf));
+            long res = vlqInputStream.readLong();
+        });
     }
 
     @Test

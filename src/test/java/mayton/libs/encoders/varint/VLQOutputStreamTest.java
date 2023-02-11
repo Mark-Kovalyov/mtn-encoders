@@ -1,27 +1,32 @@
 package mayton.libs.encoders.varint;
 
 import org.apache.commons.io.output.NullOutputStream;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VLQOutputStreamTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void negativeValue() throws IOException {
-        VLQOutputStream vlqOutputStream = new VLQOutputStream(new NullOutputStream());
-        vlqOutputStream.writeLong(-1L);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            VLQOutputStream vlqOutputStream = new VLQOutputStream(new NullOutputStream());
+            vlqOutputStream.writeLong(-1L);
+        });
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void hugeValue() throws IOException {
-        VLQOutputStream vlqOutputStream = new VLQOutputStream(new NullOutputStream());
-        vlqOutputStream.writeLong(Long.MAX_VALUE);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            VLQOutputStream vlqOutputStream = new VLQOutputStream(new NullOutputStream());
+            vlqOutputStream.writeLong(Long.MAX_VALUE);
+        });
     }
 
     @Test
