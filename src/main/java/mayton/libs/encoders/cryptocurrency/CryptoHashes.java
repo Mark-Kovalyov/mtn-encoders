@@ -1,6 +1,6 @@
 package mayton.libs.encoders.cryptocurrency;
 
-public class Hashes {
+public class CryptoHashes {
 
     public static boolean containsBase64Set(String s) {
         for (char c : s.toCharArray()) {
