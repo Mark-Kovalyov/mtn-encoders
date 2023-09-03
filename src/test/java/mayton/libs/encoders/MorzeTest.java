@@ -18,8 +18,13 @@ class MorzeTest {
     }
 
     @Test
-    void testHello() {
+    void test_hello_russian() {
         assertEquals(".--. .-. .. .-- . -  .---- ..--- ...--", Morze.encode("Привет 123"));
+    }
+
+    @Test
+    void test_quick_brown_fox() {
+        //assertEquals("", Morze.encode("the quick brown fox jumps over the lazy dog"));
     }
 
 }

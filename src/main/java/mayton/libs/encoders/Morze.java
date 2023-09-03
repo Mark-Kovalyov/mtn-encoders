@@ -6,6 +6,41 @@ import java.util.Map;
 
 public class Morze {
 
+    public static final Map<Character, String> ITU = Collections.unmodifiableMap(new HashMap<>() {{
+        put('A',".-");
+        put('B',"-...");
+        put('C',"-.-.");
+        put('D',"-..");
+
+        put('E',".");
+        put('F',"..-.");
+        put(' ',"");
+        put(' ',"");
+
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+        put(' ',"");
+
+        put('X',"-..-");
+        put('Y',"-.--");
+        put('Z',"--..");
+    }});
+
     public static final Map<Character, String> MORZE = Collections.unmodifiableMap(new HashMap<>() {{
         put('А',".-");
         put('Б',"-...");
@@ -40,6 +75,7 @@ public class Morze {
         put('Э',"..-..");
         put('Ю',"..--");
         put('Я',".-.-");
+
         put('0',"-----");
         put('1',".----");
         put('2',"..---");
