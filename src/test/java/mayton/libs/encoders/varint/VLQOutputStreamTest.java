@@ -11,7 +11,7 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class VLQOutputStreamTest {
+class VLQOutputStreamTest {
 
     @Test
     public void negativeValue() throws IOException {

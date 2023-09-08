@@ -7,10 +7,10 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 
-public class FibonacciOutputStreamTest {
+class FibonacciOutputStreamTest {
 
     @Test
-    public void test1() throws IOException {
+    void test1() throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         FibonacciOutputStream fibonacciOutputStream = new FibonacciOutputStream(bos);
         fibonacciOutputStream.writeLong(1);

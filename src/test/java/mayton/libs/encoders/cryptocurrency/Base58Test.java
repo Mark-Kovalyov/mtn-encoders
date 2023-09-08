@@ -1,4 +1,4 @@
-package mayton.libs.encoders;
+package mayton.libs.encoders.cryptocurrency;
 
 import mayton.libs.encoders.cryptocurrency.Base58;
 import org.apache.commons.codec.DecoderException;
@@ -11,6 +11,11 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 class Base58Test {
+
+    @Test
+    void check_bitcoin_wallet() {
+        assertTrue(Base58.isBitcoinWallet("1JNpp8r5d3NjgiVAWdnJrTENiNL8oNrtKW"));
+    }
 
     @Test
     void encode_empty() {

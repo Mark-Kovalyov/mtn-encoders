@@ -3,12 +3,12 @@ package mayton.libs.encoders.fibonacci;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class FibonacciUtilsTest {
+class FibonacciUtilsTest {
 
     // Encoder
 
     @Test
-    public void testEncoder() {
+    void testEncoder() {
         assertEquals("1", FibonacciUtils.encodeF(1));
         assertEquals("01", FibonacciUtils.encodeF(2));
         assertEquals("001", FibonacciUtils.encodeF(3));
@@ -16,12 +16,12 @@ public class FibonacciUtilsTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testEncoderNeg() {
+    void testEncoderNeg() {
         assertEquals("", FibonacciUtils.encodeF(-1));
     }
 
     @Test
-    public void testEncoderMarginal() {
+    void testEncoderMarginal() {
         assertEquals("0010010000001000010100100101000001", FibonacciUtils.encodeF(10_000_000));
         assertEquals("00100001010101000001010000101010010101", FibonacciUtils.encodeF(100_000_000));
         assertEquals("1001010001010001000001010101000010010000101", FibonacciUtils.encodeF(1_000_000_000));
@@ -31,27 +31,27 @@ public class FibonacciUtilsTest {
     // Decoder
 
     @Test(expected = IllegalArgumentException.class)
-    public void testDecoderEmpty() {
+    void testDecoderEmpty() {
         FibonacciUtils.decodeF("");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testDecoderIllegalSymbol() {
+    void testDecoderIllegalSymbol() {
         FibonacciUtils.decodeF("10x");
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testImpossibleCombinations() {
+    void testImpossibleCombinations() {
         FibonacciUtils.decodeF("100110001");
     }
 
     @Test
-    public void testMarginal() {
+    void testMarginal() {
         assertEquals(1L, FibonacciUtils.decodeF("1"));
     }
 
     @Test
-    public void testDecoder() {
+    void testDecoder() {
         assertEquals(1L, FibonacciUtils.decodeF("1"));
         assertEquals(2L, FibonacciUtils.decodeF("01"));
         assertEquals(3L, FibonacciUtils.decodeF("001"));

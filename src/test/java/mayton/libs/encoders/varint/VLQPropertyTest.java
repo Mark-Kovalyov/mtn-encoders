@@ -1,19 +1,17 @@
 package mayton.libs.encoders.varint;
 
-import mayton.libs.encoders.NumericUtils;
 import net.jqwik.api.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 
-public class VLQPropertyTest {
+class VLQPropertyTest {
 
     private Random r = new Random();
 
