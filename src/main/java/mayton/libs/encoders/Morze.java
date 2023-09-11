@@ -1,12 +1,10 @@
 package mayton.libs.encoders;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Morze {
 
-    public static final Map<Character, String> ITU = Collections.unmodifiableMap(new HashMap<>() {{
+    public static final Map<Character, String> INTERNATIONAL_ITU = Collections.unmodifiableMap(new LinkedHashMap<>() {{
         put('A',".-");
         put('B',"-...");
         put('C',"-.-.");
@@ -14,34 +12,31 @@ public class Morze {
 
         put('E',".");
         put('F',"..-.");
-        put(' ',"");
-        put(' ',"");
+        put('G',"--.");
+        put('H',"....");
 
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
-        put(' ',"");
+        put('J',".---");
+        put('K',"-.-");
+        put('L',".-..");
+
+        put('M',"--");
+        put('N',"-.");
+
+        put('O',"---");
+        put('R',".-.");
+        put('S',"...");
+        put('T',"-");
+
+        put('U',"..-");
+        put('V',"...-");
+        put('W',".--");
 
         put('X',"-..-");
         put('Y',"-.--");
         put('Z',"--..");
     }});
 
-    public static final Map<Character, String> MORZE = Collections.unmodifiableMap(new HashMap<>() {{
+    public static final Map<Character, String> RUSSIAN = Collections.unmodifiableMap(new LinkedHashMap<>() {{
         put('А',".-");
         put('Б',"-...");
         put('В',".--");
@@ -88,15 +83,20 @@ public class Morze {
         put('9',"----.");
     }});
 
+
+
     public static String encode(String text) {
         StringBuilder sb = new StringBuilder();
         boolean isFirst = true;
         for(char c : text.toUpperCase().toCharArray()) {
             if (c == ' ') {
                 sb.append(' ');
-            } else if (MORZE.containsKey(c)) {
+            } else if (RUSSIAN.containsKey(c)) {
                 if (!isFirst) sb.append(' ');
-                sb.append(MORZE.get(c));
+                sb.append(RUSSIAN.get(c));
+            } else if (INTERNATIONAL_ITU.containsKey(c)) {
+                if (!isFirst) sb.append(' ');
+                sb.append(INTERNATIONAL_ITU.get(c));
             }
             isFirst = false;
         }
